@@ -1,0 +1,25 @@
+<html>
+	<body>
+		{% if user %}
+			<p>{{ user.username }}</p>
+		{% endif %}
+		<p>Register</p>
+		<form action="{% url trylinux.views.register %}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<p>{{ registerform.username }}</p>
+			<p>{{ registerform.password }}</p>
+			<p><input type="submit" value="Register" /></p>
+		</form>
+		<p>Login</p>
+		<form action="{% url trylinux.views.login %}" method="post"enctype="multipart/form-data">
+			{% csrf_token %}
+			<p>{{ loginform.username }}</p>
+			<p>{{ loginform.password }}</p>
+			<p> <input type="submit" value="Login"/></p>
+		</form>
+		<a href="{% url trylinux.views.logout %}">
+			<span class="text">logout </span>
+		</a>
+	</body>
+
+</html>
