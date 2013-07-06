@@ -17,7 +17,7 @@ def index(request):
     loginform = LoginForm()
     return render_to_response(
         'index.html',
-        {'registerform': registerform, 'loginform':loginform, 'user':user},
+        {'registerform': registerform, 'loginform': loginform, 'user': user},
         context_instance=RequestContext(request)
     )
 
