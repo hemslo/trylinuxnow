@@ -19,12 +19,6 @@ class RegisterForm(forms.Form):
             return self.cleaned_data["username"]
         raise forms.ValidationError(_(u"duplicate username"))
 
-    def clean_email(self):
-        '''Verify duplicate email'''
-        emails = User.objects.filter(email__iexact=self.cleaned_data["email"])
-        if not emails:
-            return self.cleaned_data["email"]
-        raise forms.ValidationError(_(u"duplicate email"))
 
 
 class LoginForm(forms.Form):
