@@ -10,7 +10,7 @@ class Course(models.Model):
     info = models.TextField()
 
     def __unicode__(self):
-        return u'%s %s %s' % (self.name, self.info)
+        return u'%s %s' % (self.name, self.info)
 
 
 class Stages(models.Model):

@@ -71,19 +71,20 @@ def logout(request):
 
 
 def postcommand(request):
-    if request.method == 'POST':
-        command = request.POST.get('command')
+    # if request.method == 'POST':
+    #     command = request.POST.get('command')
 
-    if request.user.is_authenticated():  # 判断用户是否已登录
-        user = User.objects.get(username=request.user)
-    course = Course.objects.get(id=1)
-    stage = course.stages.all()
-    content = stage[0]['content']
+    # if request.user.is_authenticated():  # 判断用户是否已登录
+    #     user = User.objects.get(username=request.user)
+    # course = Course.objects.get(id=1)
+    # stage = course.stages.all()
+    # content = stage[0]['content']
 
-    c = zerorpc.Client()
-    c.connect("tcp://127.0.0.1:4242")
-    result = c.judge(user['id'], command, content)
-    data = {'msg': result['output'],
+    # c = zerorpc.Client()
+    # c.connect("tcp://127.0.0.1:4242")
+    # result = c.judge(user['id'], command, content)
+    # data = {'msg': result['output'],
+    data = {'msg': 'got it',
             'tree': '',
             'nowstep': 1}
     return HttpResponse(json.dumps(data), mimetype='application/json')

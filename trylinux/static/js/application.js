@@ -3,19 +3,19 @@ $(function($, undefined) {
   $('#terminal-wrapper').terminal(function(command, term) {
     if (command !== '') {
       var request = $.ajax({
-        url: "postcommand",
+        url: "/postcommand/",
         type: "POST",
         data: {cmd : command},
       });
       request.done(function(msg) {
         // DO STUFFS HERE2
-        json = $.parseJSON(msg)
+        json = msg
 
         // 1 term echo
         term.echo(String(json.msg))
 
         // 2 refresh directory tree
-        // $("#tree-wrapper").jstree({ 
+        // $("#tree-wrapper").jstree({
         //   "json_data" : json.tree,
         //   "plugins" : [ "themes", "json_data", "ui" ]
         // });
@@ -38,9 +38,9 @@ $(function($, undefined) {
 
 // init tree
 $(function () {
-  $("#tree-wrapper").jstree({ 
+  $("#tree-wrapper").jstree({
     "json_data" : {
-      "data" : [{ 
+      "data" : [{
         "data" : "/",
         "children": ["directory1", "directory2"]
       }]
