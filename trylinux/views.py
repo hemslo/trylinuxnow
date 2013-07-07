@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.utils.translation import ugettext_lazy as _
 from forms import RegisterForm, LoginForm
+import zerorpc
+import json
 
 
 def index(request):
@@ -66,13 +68,22 @@ def logout(request):
     return HttpResponseRedirect('/')
 
 
-'''
+
 
 def postcommand(request):
-    if request.method = 'POST':
+    if request.method == 'POST':
         command = request.POST.get('command')
-    courses = Course.objects.get(id=1)
-    stages = courses.stage.all()
-    stage = courses.stage.get(index=stageindex)
 
-'''
+    if request.user.is_authenticated():  # 判断用户是否已登录
+        user = User.objects.get(username=request.user)
+    course = Course.objects.get(id=1)
+    stage = course.stages.all()
+    content = stage[0]['content']
+
+    c = zerorpc.Client()
+    c.connect("tcp://127.0.0.1:4242")
+    result = c.judge(user['id'], command, content)
+    data = {'msg': result['output'],
+            'tree': '',
+            'nowstep': 1}
+    return HttpResponse(json.dumps(data), mimetype='application/json')

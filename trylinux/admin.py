@@ -5,7 +5,7 @@ from trylinux.models import Course, Stages
 
 class CourseAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'info')
-    filter_horizontal = ('stages',)
+    #filter_horizontal = ('stages',)
     def __unicode__(self):
         return u'%s %s %s' % (self.id, self.name, self.info)
 
