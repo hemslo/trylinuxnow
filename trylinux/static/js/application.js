@@ -16,13 +16,14 @@ $(function($, undefined) {
       term.echo(String(json.msg))
 
       // 2 refresh directory tree
-      $("#tree-wrapper").jstree({ 
-        "json_data" : json.tree,
-        "plugins" : [ "themes", "json_data", "ui" ]
-      });
+      // $("#tree-wrapper").jstree({ 
+      //   "json_data" : json.tree,
+      //   "plugins" : [ "themes", "json_data", "ui" ]
+      // });
 
       // 3 refresh step
-      $("#nowstep").html(json.nowstep)
+      nextstep = $("#nowstep").html()+1
+      $("#nowstep").html(nextstep)
 
     }
   }, {
@@ -39,7 +40,8 @@ $(function () {
   $("#tree-wrapper").jstree({ 
     "json_data" : {
       "data" : [{ 
-        "data" : "/"
+        "data" : "/",
+        "children": ["directory1", "directory2"]
       }]
     },
     "plugins" : [ "themes", "json_data", "ui" ]
