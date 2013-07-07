@@ -26,12 +26,19 @@
             <li><a href="teach">Teach</a></li>
           </ul>
           <ul class="nav pull-right">
-            <li><a href="#">Signup</a></li>
-            <li><a href="#">Signin</a></li>
+            <li><a href="register">signup</a></li>
+            <li><a href="login">signin</a></li>
           </ul>
         </div>
       </div>
     </div>
+
+    <!-- page header -->
+    <div>
+      <h3>Try Linux Now <small></small></h3>
+      <h4>Got 15 minutes and want to learn some Linux?</h4>
+    </div>
+
 
     <div id="content">
       {% block content %}{% endblock %}
@@ -39,9 +46,23 @@
 
     <!-- footer -->
     <footer>
-      <div>
-        footer
-      </div>
+        <div class="well">
+          <center>
+            <p>A free project under <a href="https://www.wikipedia.org/wiki/WTFPL">WTFPL</a></p>
+            <p><a href="https://github.com/wdholmes/trylinuxnow">Fork us on Github</a></p>
+          </center>
+
+          <!-- AddThis Button BEGIN -->
+          <div class="addthis_toolbox addthis_default_style">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a class="addthis_button_tweet"></a>
+          <a class="addthis_button_pinterest_pinit"></a>
+          <a class="addthis_counter addthis_pill_style"></a>
+          </div>
+          <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51d906215d4e6be7"></script>
+          <!-- AddThis Button END -->
+
+        </div>
     </footer>
 
   </div>

@@ -8,23 +8,42 @@ $(function($, undefined) {
         data: {cmd : command},
       });
       request.done(function(msg) {
-        term.echo(String(msg))
-      });
+        // DO STUFFS HERE
+
+        json = $.parseJSON(msg)
+
+        // 1 term echo
+        term.echo(String(json.msg))
+
+        // 2 refresh directory tree
+        // $("#tree-wrapper").jstree({ 
+        //   "json_data" : json.tree,
+        //   "plugins" : [ "themes", "json_data", "ui" ]
+        // });
+
+        // 3 refresh step
+        nextstep = parseInt($("#nowstep").html())+1
+        $("#nowstep").html(nextstep)
+
+      }
+
     }
   }, {
-    greetings: 'Greetings',
+    greetings: 'Greetings!',
     name: 'terminal',
     height: 400,
-    width: 720,
+    width: 560,
     prompt: '$ '});
 });
+
 
 // init tree
 $(function () {
   $("#tree-wrapper").jstree({ 
     "json_data" : {
       "data" : [{ 
-        "data" : "/"
+        "data" : "/",
+        "children": ["directory1", "directory2"]
       }]
     },
     "plugins" : [ "themes", "json_data", "ui" ]
