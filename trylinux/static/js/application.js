@@ -2,22 +2,37 @@
 $(function($, undefined) {
   $('#terminal-wrapper').terminal(function(command, term) {
     if (command !== '') {
-      var request = $.ajax({
-        url: "postcommand",
-        type: "POST",
-        data: {cmd : command},
+      // var request = $.ajax({
+      //   url: "postcommand",
+      //   type: "POST",
+      //   data: {cmd : command},
+      // });
+      // request.done(function(msg) {
+      //   // DO STUFFS HERE2
+      //   term.echo(String(msg))
+      json = $.parseJSON(msg)
+
+      // 1 term echo
+      term.echo(String(msg))
+
+      // 2 refresh directory tree
+      $("#tree-wrapper").jstree({ 
+        "json_data" : json.tree,
+        "plugins" : [ "themes", "json_data", "ui" ]
       });
-      request.done(function(msg) {
-        term.echo(String(msg))
-      });
+
+      // 3 refresh step
+      $("#nowstep").html(json.nowstep)
+
     }
   }, {
     greetings: 'Greetings',
     name: 'terminal',
     height: 400,
-    width: 720,
+    width: 560,
     prompt: '$ '});
 });
+
 
 // init tree
 $(function () {
