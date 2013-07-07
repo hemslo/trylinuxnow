@@ -1,17 +1,19 @@
-from django.conf.urls import patterns, include, url
-
+#-*-coding:utf8-*-
+from django.conf.urls import patterns, url, include
+from trylinux.views import index, register, login, logout
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'trylinuxnow.views.home', name='home'),
-    # url(r'^trylinuxnow/', include('trylinuxnow.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
-)
+                       url(r'^$', index),
+                       url(r'^register/$', register),
+                       url(r'^login/$', login),
+                       url(r'^logout/$', logout),
+                       # Uncomment the next line to enable the admin:
+                       url(r'^teach/', include(admin.site.urls)),
+                       #url(r'^postcommand/$', postcommand),
+                       #url(r'^learn/$', learn),
+                       #url(r'^courses/(\d+)/stages/(\d+)', courses),
+                       #url(r'^create/$',create),
+                       )

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<hr>
+<h4>Lesson 1</h4>
+<pre>
+  You can now see your own directory tree in the left panel
+  Feel free to try some Linux commands, and then follow instructions in terminal
+  You are now in STEP <strong><span class="steps" id="nowstep">1</span></strong> of <span class="steps">10</span>
+</pre>
+
+<div class="well">
+  <div class="row">
+    <div class="span4">
+      <div id="tree-wrapper"></div>
+    </div>
+    <div class="span7">
+      <div id="terminal-wrapper"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

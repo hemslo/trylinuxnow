@@ -1,0 +1,30 @@
+/*application.css*/
+
+body {
+  margin-top: 40px;
+}
+
+#content {
+  margin-top: 20px;
+}
+
+.addthis_default_style{
+  width: 400px;
+  position: relative;
+  left: 50%;
+  margin-left: -200px
+}
+
+#nowstep {
+  text-decoration: underline;
+}
+
+.steps {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+#terminal-wrapper{
+  font-size: 1.3em;
+  line-height: 1.2em;
+}

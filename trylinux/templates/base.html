@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.min.css" >
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.terminal.css" >
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/application.css" >
+  <script src="{{ STATIC_URL }}js/jquery-1.10.2.min.js"></script>
+  <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+  <script src="{{ STATIC_URL }}js/jquery.terminal-0.6.4.min.js"></script>
+  <script src="{{ STATIC_URL }}js/jquery.mousewheel.js"></script>
+  <script src="{{ STATIC_URL }}js/jquery.jstree.js"></script>
+  <script src="{{ STATIC_URL }}js/application.js"></script>
+  <title>TryLinuxNow</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- navbar -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">TryLinuxNow</a>
+          <ul class="nav">
+            <li><a href="learn">Learn</a></li>
+            <li><a href="teach">Teach</a></li>
+          </ul>
+          <ul class="nav pull-right">
+            <li><a href="register">signup</a></li>
+            <li><a href="login">signin</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- page header -->
+    <div>
+      <h3>Try Linux Now <small></small></h3>
+      <h4>Got 15 minutes and want to learn some Linux?</h4>
+    </div>
+
+
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="well">
+          <center>
+            <p>A free project under <a href="https://www.wikipedia.org/wiki/WTFPL">WTFPL</a></p>
+            <p><a href="https://github.com/wdholmes/trylinuxnow">Fork us on Github</a></p>
+          </center>
+
+          <!-- AddThis Button BEGIN -->
+          <div class="addthis_toolbox addthis_default_style">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a class="addthis_button_tweet"></a>
+          <a class="addthis_button_pinterest_pinit"></a>
+          <a class="addthis_counter addthis_pill_style"></a>
+          </div>
+          <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51d906215d4e6be7"></script>
+          <!-- AddThis Button END -->
+
+        </div>
+    </footer>
+
+  </div>
+</body>
+</html>
