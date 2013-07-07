@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from models import Course, Stages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
@@ -63,3 +64,15 @@ def logout(request):
     '''logout'''
     auth_logout(request)
     return HttpResponseRedirect('/')
+
+
+'''
+
+def postcommand(request):
+    if request.method = 'POST':
+        command = request.POST.get('command')
+    courses = Course.objects.get(id=1)
+    stages = courses.stage.all()
+    stage = courses.stage.get(index=stageindex)
+
+'''

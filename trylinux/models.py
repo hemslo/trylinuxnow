@@ -6,10 +6,12 @@ from django.db import models
 
 class Stages(models.Model):
     id = models.AutoField(primary_key=True)
+    index = models.IntegerField()
+    info = models.TextField()
     content = models.TextField()
 
     def __unicode__(self):
-        return u'%s %s' % (self.id, self.content)
+        return u'%s %s' % (self.info, self.content)
 
 
 class Course(models.Model):
@@ -19,4 +21,4 @@ class Course(models.Model):
     stages = models.ManyToManyField(Stages)
 
     def __unicode__(self):
-        return u'%s %s %s' % (self.id, self.name, self.info)
+        return u'%s %s %s' % (self.name, self.info)
