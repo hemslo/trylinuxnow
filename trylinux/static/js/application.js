@@ -2,29 +2,30 @@
 $(function($, undefined) {
   $('#terminal-wrapper').terminal(function(command, term) {
     if (command !== '') {
-      // var request = $.ajax({
-      //   url: "postcommand",
-      //   type: "POST",
-      //   data: {cmd : command},
-      // });
-      // request.done(function(msg) {
-      //   // DO STUFFS HERE2
-      //   term.echo(String(msg))
-      json = $.parseJSON(msg)
+      var request = $.ajax({
+        url: "postcommand",
+        type: "POST",
+        data: {cmd : command},
+      });
+      request.done(function(msg) {
+        // DO STUFFS HERE2
+        json = $.parseJSON(msg)
 
-      // 1 term echo
-      term.echo(String(json.msg))
+        // 1 term echo
+        term.echo(String(json.msg))
 
-      // 2 refresh directory tree
-      // $("#tree-wrapper").jstree({ 
-      //   "json_data" : json.tree,
-      //   "plugins" : [ "themes", "json_data", "ui" ]
-      // });
+        // 2 refresh directory tree
+        // $("#tree-wrapper").jstree({ 
+        //   "json_data" : json.tree,
+        //   "plugins" : [ "themes", "json_data", "ui" ]
+        // });
 
-      // 3 refresh step
-      nextstep = $("#nowstep").html()+1
-      $("#nowstep").html(nextstep)
+        // 3 refresh step
+        nextstep = $("#nowstep").html()+1
+        $("#nowstep").html(nextstep)
 
+
+      });
     }
   }, {
     greetings: 'Greetings!',
