@@ -13,7 +13,7 @@ $(function($, undefined) {
       json = $.parseJSON(msg)
 
       // 1 term echo
-      term.echo(String(msg))
+      term.echo(String(json.msg))
 
       // 2 refresh directory tree
       $("#tree-wrapper").jstree({ 
@@ -26,7 +26,7 @@ $(function($, undefined) {
 
     }
   }, {
-    greetings: 'Greetings',
+    greetings: 'Greetings!',
     name: 'terminal',
     height: 400,
     width: 560,
